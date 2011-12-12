@@ -50,7 +50,8 @@ Theta_grad = zeros(size(Theta));
 %J = J / 2;
 
 J = sum(sum(((X * Theta') - Y) .^ 2 .* R)) / 2;
-
+X_grad = (((X * Theta') - Y) .* R) * Theta;
+Theta_grad = (((X * Theta') - Y) .* R)' * X;
 
 
 
