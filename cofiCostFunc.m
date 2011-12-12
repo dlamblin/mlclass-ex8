@@ -49,7 +49,8 @@ Theta_grad = zeros(size(Theta));
 %end
 %J = J / 2;
 
-J = sum(sum(((X * Theta') - Y) .^ 2 .* R)) / 2;
+J = sum(sum(((X * Theta') - Y) .^ 2 .* R)) / 2; %Unregularized
+J = J + (sum(sum(Theta .^ 2)) * lambda / 2) + sum(sum(X .^ 2)) * lambda / 2; %Regularized
 X_grad = (((X * Theta') - Y) .* R) * Theta;
 Theta_grad = (((X * Theta') - Y) .* R)' * X;
 
