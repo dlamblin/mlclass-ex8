@@ -22,8 +22,13 @@ sigma2 = zeros(n, 1);
 %
 
 
+%mu = sum(X) ./ m;
+%sigma2 = sum((X - (ones(m,1) * mu)) .^ 2) ./ m;
+%mu = mu';
+%sigma2 = sigma2';
 
-
+mu = sum(X', 2) ./ m;
+sigma2 = sum((X' - (mu * ones(1, m))) .^ 2, 2) ./ m;
 
 
 
